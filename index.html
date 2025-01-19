@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electron Arduino App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.9/codemirror.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+ textarea {
+      width: 100%;
+      height: 150px;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: both; /* Allows the user to resize both horizontally and vertically */
+      overflow: auto; /* Ensures scrollbars appear if content overflows */
+    }
+
+    button {
+      display: block;
+      width: 200px;
+      margin: 10px auto;
+      padding: 10px;
+      font-size: 16px;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    select {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      width: 50%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #serialMonitor {
+      width: 100%;
+      height: 200px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #fff;
+      overflow-y: scroll;
+    }
+  </style>
+</head>
+<body>
+  <h1>Arduino Control</h1>
+  <textarea id="pythonCode" placeholder="Write your Python code here"></textarea>
+  <select id="arduinoPort">
+    <option value="COM3">COM3</option>
+    <option value="COM4">COM4</option>
+    <!-- Add more ports as necessary -->
+  </select>
+  <button id="runCode">Run Python Code</button>
+
+  <h3>Serial Monitor</h3>
+  <div id="serialMonitor"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.9/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.9/mode/python/python.min.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>
